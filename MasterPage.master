@@ -19,8 +19,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">    
   <link rel="stylesheet" type="text/css" href="/plugins/shadowbox/shadowbox.css" />
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -30,7 +29,8 @@
     <asp:ContentPlaceHolder id="head" runat="server">        
     </asp:ContentPlaceHolder>
 </head>
-<body class="hold-transition skin-yellow sidebar-mini">    
+<body class="hold-transition skin-green sidebar-mini">
+    <form id="form1" runat="server">
     <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -38,9 +38,9 @@
     <!-- Logo -->
     <a href="../../index.aspx" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">P</span>
+      <span class="logo-mini"><img src="/image/logo_small.png" alt="GH"/></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b></b>STOCK</span>
+      <span class="logo-lg"><b></b>資訊平台</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -64,8 +64,8 @@
               <!-- User image -->
               <li class="user-header">  
                 <p>
-                  帳號 - 姓名
-                  <small>Nick</small>
+                  工號 - 姓名
+                  <small>部門</small>
                 </p>
               </li>
               
@@ -90,20 +90,81 @@
     <section class="sidebar">        
         <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">登入者：帳號-姓名</li>
+        <li class="header">登入者：工號-姓名</li>
         <li class="header">功能項</li>
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-check-square-o"></i> <span>期權</span>
+            <i class="fa fa-check-square-o"></i> <span>管理/查核系統</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-              <li><a href="/taifex/quote.aspx"><i class="fa fa-file-text"></i>期權交易</a></li>            
+              <li><a href="/MNG/KPI001.aspx"><i class="fa fa-file-text"></i>建單即時率</a></li>            
           </ul>
         </li>  
-                      
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-usd"></i> <span>訂單系統</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/COP/COP001.aspx"><i class="fa fa-file-text"></i>銷貨單-生產狀況</a></li> 
+              <li><a href="/COP/COP002.aspx"><i class="fa fa-file-text"></i>營一備料單</a></li>             
+          </ul>              
+        </li>  
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-briefcase"></i> <span>庫存系統</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/INV/INV001.aspx"><i class="fa fa-file-text"></i>盤點盈虧清單</a></li>
+              
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-industry"></i> <span>製令/託外系統</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li><a href="/MOC/MOC002.aspx"><i class="fa fa-file-text"></i>線別預估成品率</a></li>
+              <li><a href="/MOC/MOC001.aspx"><i class="fa fa-file-text"></i>鋁圓條耗用統計</a></li>      
+              <li><a href="/MOC/MOC003.aspx"><i class="fa fa-file-text"></i>擠型->包裝成品差異追蹤表</a></li>
+              <li><a href="/MOC/MOC004.aspx"><i class="fa fa-file-text"></i>擠型績效表</a></li> 
+          </ul>
+        </li>
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-wrench"></i> <span>製程系統</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+              <ul class="treeview-menu">             
+              <li><a href="/SFC/SFC001.aspx"><i class="fa fa-file-text"></i>重工倉例外數量統計</a></li>            
+          </ul>
+        </li>
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-film"></i> <span>教學影片</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+              <ul class="treeview-menu">             
+              <li><a href="/MOV/MOV001.aspx"><i class="fa fa-file-text"></i>客戶資料變更作業教學</a></li> 
+                  <li><a href="/MOV/MOV002.aspx"><i class="fa fa-file-text"></i>品號資料變更作業教學</a></li>
+                  <li><a href="/MOV/MOV003.aspx"><i class="fa fa-file-text"></i>供應商資料變更作業教學</a></li>                      
+          </ul>
+        </li>             
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -118,16 +179,16 @@
   <!-- /.content-wrapper -->
 
   <footer class="main-footer">    
-    <strong>Copyright &copy; 2017 Patrick.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="http://www.goang-hann.com"> goang-hann</a>.</strong> All rights reserved.
   </footer>
 
 </div>
 <!-- ./wrapper -->
-
+    </form>
     <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery/jquery-2.2.3.js"></script>
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
@@ -140,9 +201,6 @@
 <script src="/dist/js/demo.js"></script>
     <script src="/plugins/blockUI/jquery.blockUI.js"></script>
     <script src="/plugins/jquery.enter2tab.js"></script>    
-    <!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="/plugins/daterangepicker/daterangepicker.js"></script>
     <asp:ContentPlaceHolder id="FooterPlaceHolder" runat="server">
         
   </asp:ContentPlaceHolder>
